@@ -2,7 +2,7 @@
 
 # Docker - Guia para desarrolladores
 
-## _*Sección 2: Bases de docker*_
+## _*`Sección 2: Bases de docker`*_
 ### _Temas puntuales de la sección_
 Esta sección introductoria a Docker, nos explicará cosas como: ¿Qué es Docker?, ¿Por qué debo de aprenderlo? y ¿Para qué me puede servir?.
 
@@ -20,7 +20,7 @@ docker container:
 
 Adicionalmente les mostraré como hacer lo mismo que hicimos directamente desde Docker Desktop, pero les recomiendo fuertemente que primero aprendamos los comandos desde la consola antes de intentar hacer todo directamente desde Docker Desktop y así saber lo que hacen las GUIs (Graphic User Interfaces).
 
-## _*10. ¿Qué es Docker? y ¿Por qué debo saberlo?*_
+## _*`10. ¿Qué es Docker? y ¿Por qué debo saberlo?`*_
 Una imagen de docker es como un molde o una fotografia.
 - Cada contenedor esta aislado de los demás.
 - Es posible ejecutar varias instacias de la misma versión o diferentes versiones sin configuraciones adicionales.
@@ -28,7 +28,7 @@ Una imagen de docker es como un molde o una fotografia.
 - Cada contenedor contiene todo lo que necesita para ejecutarse.
 - Indiferente el sistema operativo HOST.
 
-## _*11. Hola Mundo en Docker*_
+## _*`11. Hola Mundo en Docker`*_
 ```bash
 docker pull hello-world
 ```
@@ -72,4 +72,63 @@ For more examples and ideas, visit:
 
 ```
 
+
+## _*`12. Borrar contenedores e imágenes`_*
+#### Containers
+```bash
+docker container --help
+```
+
+>
+Este comando nos muestra todos los comandos disponibles en _docker container_
+
+```bash
+Usage:  docker container COMMAND
+
+Manage containers
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  exec        Run a command in a running container
+  export      Export a container's filesystem as a tar archive
+  inspect     Display detailed information on one or more containers
+  kill        Kill one or more running containers
+  logs        Fetch the logs of a container
+  ls          List containers
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  prune       Remove all stopped containers
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  run         Run a command in a new container
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+```
+
+- Limpieza especifica
+```bash
+docker container rm <id_container> | <name>
+```
+
+- Limpieza general
+```bash
+docker container prune
+```
+Este comando elimina todos los contenedores que no esten siendo ejecutados.
+
+#### Images
+- Limpieza especifica
+```bash
+docker image rm <id_image>
+```
 
