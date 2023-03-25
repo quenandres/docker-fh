@@ -132,3 +132,33 @@ Este comando elimina todos los contenedores que no esten siendo ejecutados.
 docker image rm <id_image>
 ```
 
+
+## _*`13. Publish and Detached modes`_*
+```bash
+docker run -d -p 82:80 docker/getting-started
+```
+_-d_: *detach* Indica que el contenedor correra de manera decenlazada de la terminal, asi esta se cierre el contenedor continuara su ejecución.
+_-p_: *publish* Publicar o exponer el contenedor en cierto puerto
+
+#### _*`Puerto`*_
+HOST _*:*_ CONTAINER
+
+Inicializar un contenedor
+```bash
+docker start <id_container>
+```
+
+Detener un contenedor
+```bash
+docker stop <id_container>
+```
+
+No se puede eliminar un contenedor que esta en ejecución.
+
+Remover un contenedor de manera forzada.
+```bash
+docker rm -f <id_container>
+```
+
+## _*`14. Docker Desktop - Mismos comandos ejecutados`_*
+
