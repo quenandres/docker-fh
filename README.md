@@ -162,3 +162,13 @@ docker rm -f <id_container>
 
 ## _*`14. Docker Desktop - Mismos comandos ejecutados`_*
 
+## _*`15. Variables de entorno`_*
+
+```bash
+docker pull postgres
+```
+
+
+```bash
+docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+```
