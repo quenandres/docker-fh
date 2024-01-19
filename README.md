@@ -168,7 +168,28 @@ docker rm -f <id_container>
 docker pull postgres
 ```
 
-
 ```bash
-docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+docker run --name some-postgres -e POSTGRES_PASSWORD=password -d postgres
+```
+
+## _*17. Usar la imagen de Postgres*_
+
+#### _Antes_
+```bash
+docker run --name some-postgres -dp 5432:5432 -e POSTGRES_PASSWORD=password -d postgres
+```
+
+Como se ve en el `docker cotainer ls`
+```bash
+5432/tcp
+```
+
+
+#### _Despues_
+```bash
+docker run --name some-postgres -dp 5432:5432 -e POSTGRES_PASSWORD=password -d postgres
+```
+Como se ve en el `docker cotainer ls`
+```bash
+0.0.0.0:5432->5432/tcp
 ```
