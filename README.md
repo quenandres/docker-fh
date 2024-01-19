@@ -206,3 +206,35 @@ docker container run --name postgres-bete -e POSTGRES_PASSWORD=mypass1 -dp 5433:
 ```
 
 Se cambia el nombre de la instancia y cambiamos el puerto para que no se repita
+
+Para eliminar contenedores, se pueden enviar distintos id de contenedores
+
+```bash
+docker rm 451 351 ...
+```
+
+## _*19. Logs del contenedor*_
+
+```bash
+docker container logs <container id>
+docker container logs --follow CONTAINER
+
+# Para darle seguimiento a los logs del contenedor
+docker container logs -f CONTAINER
+```
+
+### Tarea:
+1. Montar la base de datos MARIADB con el siguiente comando
+```bash
+docker container run -e MARIADB_RANDOM_ROOT_PASSWORD=yes -dp 3307:3306 mariadb:jammy
+```
+
+2. Obtener el listado de los contenedores activos
+3. Ejecutar el comando
+```bash
+docker container logs <id del contenedor>
+```
+4. Identificar cuál es  el password del usuario root en los logs (GENERATED ROOT PASSWORD)
+5. Conectase a MariaDB desde tablePlus user:root pass: El password aleatorio generado
+
+_Pass_: zBNknN3y1Z2%;+njRoX3%JK0W0x@DuTz
