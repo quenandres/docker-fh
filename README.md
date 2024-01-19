@@ -193,3 +193,16 @@ Como se ve en el `docker cotainer ls`
 ```bash
 0.0.0.0:5432->5432/tcp
 ```
+
+
+## _*18. Multiples instancias de Postgres*_
+
+```bash
+docker container run --name postgres-alfa -e POSTGRES_PASSWORD=mypass1 -dp 5432:5432 postgres
+```
+
+```bash
+docker container run --name postgres-bete -e POSTGRES_PASSWORD=mypass1 -dp 5433:5432 postgres:14-alpine3.17
+```
+
+Se cambia el nombre de la instancia y cambiamos el puerto para que no se repita
