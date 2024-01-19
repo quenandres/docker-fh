@@ -238,3 +238,8 @@ docker container logs <id del contenedor>
 5. Conectase a MariaDB desde tablePlus user:root pass: El password aleatorio generado
 
 _Pass_: zBNknN3y1Z2%;+njRoX3%JK0W0x@DuTz
+
+## _*20. Tarea - Borrar todas las imágenes de Postgres*_
+```bash
+docker container rm -f a2e
+```
