@@ -282,3 +282,63 @@ Conectarse usando Table Plus a la base de datos con las credenciales del usuario
 ```bash
 docker container run --name world-db -e MARIADB_USER=example-user -e MARIADB_PASSWORD=user-password -e MARIADB_ROOT_PASSWORD=root-secret-password -e MARIADB_DATABASE=world-db -dp 3307:3306 mariadb:jammy
 ```
+
+## _*`24. Tipos de volúmenes`*_
+Existen 3 tipos de volúmenes, son usados para hacer persistente la data entre los reinicios o levantamientos de contenedores.
+
+#### _`Named Volumes`_
+Es el tipo de volumen mas común
+
+Crear nuevo volumen
+```bash
+docker volumen create todo-db
+```
+
+Listar los volúmenes creados
+```bash
+docker volumen ls
+```
+
+Inspeccionar el volumen específico
+```bash
+docker volumen inspect todo-db
+```
+
+Remueve todos los volúmenes no usados
+```bash
+docker volumen prune
+```
+
+remueve uno o más volúmenes especificados
+```bash
+docker volumen rm VOLUME_NAME
+```
+
+Usar volumen al correr un contenedor
+```bash
+docker run -v todo-db:/etc/todos getting-started
+```
+
+#### _`Bind Volumes`_
+Trabaja con paths absolutos
+Se vincula el directorio del host con el directorio /app del contenedor
+
+Terminal
+```bash
+docker run -dp 3000:3000 \ 
+    -w /app -v "$(pwd):/app" \ 
+    node:18-alpine \ 
+    sh -c "yarn install && yarn run dev"
+```
+
+
+#### _`Anonymous Volumes`_
+Volúmenes donde sólo se especifica el path del contenedor y Docker lo asigna automáticamente en el host
+```bash
+docker container run --name world-db -e MARIADB_USER=example-user -e MARIADB_PASSWORD=user-password -e MARIADB_ROOT_PASSWORD=root-secret-password -e MARIADB_DATABASE=world-db --volume world-db:/var/lib/mysql -dp 3307:3306 mariadb:jammy
+```
+
+
+## _*`25. PHPMyAdmin`*_
+
+docker pull phpmyadmin:5.2.0-apache
