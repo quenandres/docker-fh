@@ -172,7 +172,7 @@ docker pull postgres
 docker run --name some-postgres -e POSTGRES_PASSWORD=password -d postgres
 ```
 
-## _*17. Usar la imagen de Postgres*_
+## _*`17. Usar la imagen de Postgres`*_
 
 #### _Antes_
 ```bash
@@ -195,7 +195,7 @@ Como se ve en el `docker cotainer ls`
 ```
 
 
-## _*18. Multiples instancias de Postgres*_
+## _*`18. Multiples instancias de Postgres`*_
 
 ```bash
 docker container run --name postgres-alfa -e POSTGRES_PASSWORD=mypass1 -dp 5432:5432 postgres
@@ -213,7 +213,7 @@ Para eliminar contenedores, se pueden enviar distintos id de contenedores
 docker rm 451 351 ...
 ```
 
-## _*19. Logs del contenedor*_
+## _*`19. Logs del contenedor`*_
 
 ```bash
 docker container logs <container id>
@@ -239,7 +239,46 @@ docker container logs <id del contenedor>
 
 _Pass_: zBNknN3y1Z2%;+njRoX3%JK0W0x@DuTz
 
-## _*20. Tarea - Borrar todas las imágenes de Postgres*_
+## _*`20. Tarea - Borrar todas las imágenes de Postgres`*_
 ```bash
 docker container rm -f a2e
+```
+
+## _*`Sección 3 Volúmenes y Redes`*_
+### _Temas puntuales de la sección_
+
+Esta sección empieza a ponerse más interesante con los siguientes temas:
+- Terminal interactiva dentro del contenedor
+- Aplicaciones con múltiples contenedores
+- Redes
+- Volúmenes
+- Mapeo de directorios y relaciones
+- Montar un servidor Apache con PHPMyAdmin junto a MariaDB
+- Revisar el file system de alpine y node
+
+Esta sección empieza a dejar bases para el uso de los contenedores a otro nivel.
+
+## _*`23. Ejercicio sin volúmenes - Montar Base de Datos`*_
+
+### Tarea:
+1. Montar la imagen de MariaDB con el tag jammy, publicar en el puerto 3306 del contenedor con el puerto 3306 de nuestro equipo, colocarle el nombre al contenedor de world-db (--name world-db) y definir las siguientes variables de entorno:
+
+MARIADB_USER=example-user
+MARIADB_PASSWORD=user-password
+MARIADB_ROOT_PASSWORD=root-secret-password
+MARIADB_DATABASE=world-db
+Conectarse usando Table Plus a la base de datos con las credenciales del usuario (NO EL ROOT)
+
+2. Conectarse a la base de datos world-db
+
+3. Ejecutar el query de creación de tablas e inserción proporcionado
+
+[world.sql](./assets/sql/seccion-2/world.sql)
+
+4. Revisar que efectivamente tengamos la data
+
+## `Solución`
+
+```bash
+docker container run --name world-db -e MARIADB_USER=example-user -e MARIADB_PASSWORD=user-password -e MARIADB_ROOT_PASSWORD=root-secret-password -e MARIADB_DATABASE=world-db -dp 3307:3306 mariadb:jammy
 ```
