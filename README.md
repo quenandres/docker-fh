@@ -340,5 +340,13 @@ docker container run --name world-db -e MARIADB_USER=example-user -e MARIADB_PAS
 
 
 ## _*`25. PHPMyAdmin`*_
-
+```bash
 docker pull phpmyadmin:5.2.0-apache
+```
+
+```bash
+docker container run --name phpmyadmin -d -e PMA_ARBITRARY=1 -p 8080:80 phpmyadmin:5.2.0-apache
+```
+
+Si los contenedores estan en la misma red, podran hablarse entre si.
+
