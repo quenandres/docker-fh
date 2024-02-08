@@ -350,3 +350,37 @@ docker container run --name phpmyadmin -d -e PMA_ARBITRARY=1 -p 8080:80 phpmyadm
 
 Si los contenedores estan en la misma red, podran hablarse entre si.
 
+## _*`26. Redes de contenedores`*_
+
+[https://docs.docker.com/engine/tutorials/networkingcontainers/](https://docs.docker.com/engine/tutorials/networkingcontainers/)
+
+Mostrar las redes
+```bash
+docker network ls
+```
+
+Crear nueva red
+```bash
+docker network create todo-app
+```
+
+Crear nueva red
+```bash
+docker network inspect <NAME o ID>
+```
+
+Borrar todas las redes no usadas
+```bash
+docker network prune
+```
+
+Correr una imagen y unirla a la red
+```bash
+docker run -d \ 
+    --network todo-app --network-alias mysql \ 
+    -v todo-mysql-data:/var/lib/mysql \ 
+    -e MYSQL_ROOT_PASSWORD=secret \ 
+    -e MYSQL_D \
+    mysql:8.0
+```
+
