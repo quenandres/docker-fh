@@ -381,6 +381,18 @@ docker run -d \
     -v todo-mysql-data:/var/lib/mysql \ 
     -e MYSQL_ROOT_PASSWORD=secret \ 
     -e MYSQL_D \
+    --network world-app
     mysql:8.0
 ```
 
+## _*`27. Asignar la red desde la inicialización`*_
+
+```bash
+docker container run --name world-db -e MARIADB_USER=example-user -e MARIADB_PASSWORD=user-password -e MARIADB_ROOT_PASSWORD=root-secret-password -e MARIADB_DATABASE=world-db --volume world-db:/var/lib/mysql -dp 3307:3306 --network world-app mariadb:jammy
+```
+
+```bash
+docker container run --name phpmyadmin -d -e PMA_ARBITRARY=1 -p 8080:80 --network world-app phpmyadmin:5.2.0-apache
+```
+
+--network <name-network>
