@@ -289,7 +289,7 @@ Existen 3 tipos de volúmenes, son usados para hacer persistente la data entre l
 #### _`Named Volumes`_
 Es el tipo de volumen mas común
 
-Crear nuevo volumen
+Crear volumen
 ```bash
 docker volumen create todo-db
 ```
@@ -451,3 +451,27 @@ docker exec -it <id contenedor> (bash | bin/sh)
 ```
 _-it_: hace interactivo el contenedor.
 
+
+
+## _*`Sección 4 Multi-container Apps - Docker Compose`*_
+### _Temas puntuales de la sección_
+
+En esta sección trabajaremos montando aplicaciones con multiples contenedores, técnicamente usaremos la herramienta del docker compose para ejecutar todas las instrucciones que levantan los contenedores con todo lo necesario para nuestra aplicación.
+
+- docker-compose.yml
+- Crear servicios
+- Volúmenes
+- Bind
+- Name
+- Externos
+- Imágenes con tags
+- Comandos de ejecución al montar una imagen
+- Puertos
+- Manejo de variables de entorno
+- Nombres de servicios y servidores
+- Dependencias de otros servicios
+
+Esto dejará las base es para que comprendamos cómo trabajar con estos archivos que nos servirán mucho para dejar documentado cómo correr y configurar la aplicación.
+
+## _*`35. Laboratorio: Reforzamiento de lo aprendido`*_
+[tarea 1](./assets/homeworks/fourthSection.md)
