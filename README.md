@@ -478,3 +478,6 @@ Esto dejará las base es para que comprendamos cómo trabajar con estos archivos
 
 ## _*`37. Docker Compose - Multi Container Apps`*_
 
+## _*`38. Correr, limpiar y otras consideraciones - Docker Compose`*_
+
+
