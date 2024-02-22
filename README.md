@@ -444,3 +444,10 @@ Configuración de ts para que se refresquen los cambios en el contenedor en tiem
       "excludeDirectories": ["**/node_modules", "dist"]
   }
 ```
+
+## _*`31. Terminal interactiva -it`*_
+```bash
+docker exec -it <id contenedor> (bash | bin/sh)
+```
+_-it_: hace interactivo el contenedor.
+

@@ -12,6 +12,7 @@ export class TodoService {
         { id: 3, description: 'Piedra del Poder', done: false },
         { id: 4, description: 'Piedra del Tiempo', done: false },
         { id: 5, description: 'Piedra de la realidad test de actualización', done: true },
+	{ id: 6, description:'Piedra de otra cosa', done: true},
     ];
 
     get totalTodos() {
