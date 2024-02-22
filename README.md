@@ -396,3 +396,23 @@ docker container run --name phpmyadmin -d -e PMA_ARBITRARY=1 -p 8080:80 --networ
 ```
 
 --network <name-network>
+
+## _*`28. Bind Volumes`*_
+
+Los bind volumes, facilitan la conexion entre el contenedor y el host, los cambios no se ven reflejados inmediatamente.
+
+## _*`29. Ejercicio - Bind Volumes`*_
+
+```bash
+docker container run ` # Set the name of the container to 'nest-app'
+    --name nest-app ` # Set the working directory inside the container to '/app'
+    -w /app ` # Map port 8085 on the host to port 3000 in the container
+    -p 8085:3000 ` # Mount the current directory on the host to '/app' in the container
+    -v ${PWD}:/app ` # Use the 'node:16-alpine3.16' image
+    node:16-alpine3.16 sh -c "yarn install && yarn start:dev" # Run the specified command inside the container
+```
+
+_-w_: workin directory ()
+_-p_: publish del puerto
+_-v_: Volumen
+_sh -c ""_: Se ejecutado cuando la imagen se ha montado
