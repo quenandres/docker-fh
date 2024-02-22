@@ -402,17 +402,45 @@ docker container run --name phpmyadmin -d -e PMA_ARBITRARY=1 -p 8080:80 --networ
 Los bind volumes, facilitan la conexion entre el contenedor y el host, los cambios no se ven reflejados inmediatamente.
 
 ## _*`29. Ejercicio - Bind Volumes`*_
+```bash
+docker container run `
+    --name nest-app `
+    -w /app `
+    -p 8085:3000 `
+    -v ${PWD}:/app `
+    node:18.16-alpine3.16 sh -c "yarn install && yarn start:dev"
+```
 
 ```bash
 docker container run ` # Set the name of the container to 'nest-app'
     --name nest-app ` # Set the working directory inside the container to '/app'
     -w /app ` # Map port 8085 on the host to port 3000 in the container
     -p 8085:3000 ` # Mount the current directory on the host to '/app' in the container
-    -v ${PWD}:/app ` # Use the 'node:16-alpine3.16' image
-    node:16-alpine3.16 sh -c "yarn install && yarn start:dev" # Run the specified command inside the container
+    -v ${PWD}:/app ` # Use the 'docker pull node:18.16-alpine3.16' image
+    node:18.16-alpine3.16 sh -c "yarn install && yarn start:dev" # Run the specified command inside the container
 ```
 
 _-w_: workin directory ()
 _-p_: publish del puerto
 _-v_: Volumen
 _sh -c ""_: Se ejecutado cuando la imagen se ha montado
+
+
+## _*`30. Probar el enlace de directorios`*_
+Configuración de ts para que se refresquen los cambios en el contenedor en tiempo real
+```json
+,
+  "watchOptions": {
+      // Use native file system events for files and directories
+      "watchFile": "priorityPollingInterval",
+      "watchDirectory": "dynamicprioritypolling",
+      // Poll files for updates more frequently
+      // when they're updated a lot.
+      "fallbackPolling": "dynamicPriority",
+      // Don't coalesce watch notification
+      "synchronousWatchDirectory": true,
+      // Finally, two additional settings for reducing the amount of p        ossible
+      // files to track work from these directories
+      "excludeDirectories": ["**/node_modules", "dist"]
+  }
+```
