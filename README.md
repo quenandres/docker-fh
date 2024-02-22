@@ -475,3 +475,6 @@ Esto dejará las base es para que comprendamos cómo trabajar con estos archivos
 
 ## _*`35. Laboratorio: Reforzamiento de lo aprendido`*_
 [tarea 1](./assets/homeworks/fourthSection.md)
+
+## _*`37. Docker Compose - Multi Container Apps`*_
+
