@@ -568,3 +568,41 @@ volumes:
     external: false
       
 ```
+
+
+
+## _*`44. Multi-container app - Visor de Base de datos`*_
+Quitamos el puerto de mongo del host para que unicamente sea accesible desde _mongo-express_
+
+
+```yml
+version: "3.7"
+services:
+  db:
+    container_name: pokemon_db
+    image: mongo:6.0
+    volumes:
+      - poke-vol:/data/db
+    environment:        
+        MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+        MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    #ports:
+    #  - ${PORT}:27017
+    restart: always
+    command: ["--auth"]
+  mongo-express:
+    depends_on:
+      - db
+    image: mongo-express:1.0.0-alpha.4
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      ME_CONFIG_MONGODB_SERVER: ${MONGO_DB_NAME}
+    ports:
+      - 8081:8081
+    restart: always
+volumes:
+  poke-vol:
+    external: false
+      
+```
