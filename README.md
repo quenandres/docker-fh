@@ -508,3 +508,37 @@ volumes:
   postgres-db:
     external: true
 ```
+
+
+_*`40. Bind Volumes - Docker Compose`*_
+Se definen 2 volumenes para _pgadmin_ y para _postgresql_.
+
+```yml
+version: '3.7'
+services:
+  db:
+    container_name: postgres_database
+    image: postgres:15.1
+    volumes:
+      #- postgres-db:/var/lib/postgresql/data #Ejemplo
+      - ./postgresdb:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=123456
+    
+  pgadmin:
+    container_name: pgadmin
+    depends_on: 
+      - db
+    image: dpage/pgadmin4:6.17
+    ports:
+      - "8080:80"
+    volumes:
+      - ./pgadmin:/var/lib/pgadmin
+    environment:
+      - PGADMIN_DEFAULT_PASSWORD=123456
+      - PGADMIN_DEFAULT_EMAIL=superman@google.com
+
+#volumes:
+#  postgres-db:
+#    external: true
+```
