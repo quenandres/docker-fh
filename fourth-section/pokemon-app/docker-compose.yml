@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  db:
+    container_name: pokemon_db
+    image: mongo:6.0
+    volumes:
+      - poke-vol:/data/db
+    environment:        
+        MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+        MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+      - ${PORT}:27017
+    restart: always
+    command: ["--auth"]
+
+volumes:
+  poke-vol:
+    external: false
+      

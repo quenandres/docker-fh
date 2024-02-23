@@ -73,7 +73,7 @@ For more examples and ideas, visit:
 ```
 
 
-## _*`12. Borrar contenedores e imágenes`_*
+## _*`12. Borrar contenedores e imágenes`*_
 #### Containers
 ```bash
 docker container --help
@@ -133,7 +133,7 @@ docker image rm <id_image>
 ```
 
 
-## _*`13. Publish and Detached modes`_*
+## _*`13. Publish and Detached modes`*_
 ```bash
 docker run -d -p 82:80 docker/getting-started
 ```
@@ -160,9 +160,9 @@ Remover un contenedor de manera forzada.
 docker rm -f <id_container>
 ```
 
-## _*`14. Docker Desktop - Mismos comandos ejecutados`_*
+## _*`14. Docker Desktop - Mismos comandos ejecutados`*_
 
-## _*`15. Variables de entorno`_*
+## _*`15. Variables de entorno`*_
 
 ```bash
 docker pull postgres
@@ -474,7 +474,7 @@ En esta sección trabajaremos montando aplicaciones con multiples contenedores, 
 Esto dejará las base es para que comprendamos cómo trabajar con estos archivos que nos servirán mucho para dejar documentado cómo correr y configurar la aplicación.
 
 ## _*`35. Laboratorio: Reforzamiento de lo aprendido`*_
-[tarea 1](./assets/homeworks/fourthSection.md)
+[Tarea 1](./assets/homeworks/fourthSection.md)
 
 ## _*`37. Docker Compose - Multi Container Apps`*_
 
@@ -511,6 +511,7 @@ volumes:
 
 
 _*`40. Bind Volumes - Docker Compose`*_
+
 Se definen 2 volumenes para _pgadmin_ y para _postgresql_.
 
 ```yml
@@ -541,4 +542,29 @@ services:
 #volumes:
 #  postgres-db:
 #    external: true
+```
+
+
+_*`42. Multi-container app - Base de datos Mongo`*_
+
+```yml
+version: "3.7"
+services:
+  db:
+    container_name: pokemon_db
+    image: mongo:6.0
+    volumes:
+      - poke-vol:/data/db
+    environment:        
+        MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+        MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+      - ${PORT}:27017
+    restart: always
+    command: ["--auth"]
+
+volumes:
+  poke-vol:
+    external: false
+      
 ```
