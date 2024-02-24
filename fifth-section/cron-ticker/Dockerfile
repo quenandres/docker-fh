@@ -8,6 +8,11 @@ COPY  package.json ./
 # instalar dependecias
 RUN npm install
 
-COPY  app.js ./
+COPY . .
+
+# Realizar testing
+RUN npm run test
+
+
 
 CMD [ "node", "app.js" ]

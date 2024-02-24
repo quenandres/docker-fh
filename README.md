@@ -756,3 +756,10 @@ Implementación de testing.
 ```bash
 npm i jest
 ```
+
+## _*`57. Examinar la imagen creada`*_
+
+
+## _*`58. Dockerignore`*_
+
+Redujimos megas ignorando cosas innecesarias para la imagen
