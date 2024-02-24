@@ -727,3 +727,18 @@ docker build -t cron-ticker:1.0.0 .
 ```bash
 docker image tag cron-ticker:1.0.0 cron-ticker:bufalo
 ```
+
+
+## _*`53. Subir imagen a Docker Hub`*_
+
+- Cambiar nombre del tag
+
+```bash
+docker image tag quenandres/cron-ticker:bufalo quenandres/cron-ticker:bufalo
+```
+
+- Subir imagenes a docker hub
+
+```bash
+docker push quenandres/cron-ticker:bufalo
+```
