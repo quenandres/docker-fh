@@ -3,9 +3,11 @@ FROM node:19.2-alpine3.16
 # WORKDIR /app -> cd app
 WORKDIR /app
 
-COPY  app.js package.json ./
+COPY  package.json ./
 
 # instalar dependecias
 RUN npm install
+
+COPY  app.js ./
 
 CMD [ "node", "app.js" ]

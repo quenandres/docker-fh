@@ -712,3 +712,18 @@ RUN npm install
 
 CMD [ "node", "app.js" ]
 ```
+
+## _*`52. Reconstruir una imagen`*_
+
+
+- Comando para tag de una imagen
+
+```bash
+docker build -t cron-ticker:1.0.0 .
+```
+
+- Renombrar tag de una imagen
+
+```bash
+docker image tag cron-ticker:1.0.0 cron-ticker:bufalo
+```
