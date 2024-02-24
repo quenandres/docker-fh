@@ -742,3 +742,12 @@ docker image tag quenandres/cron-ticker:bufalo quenandres/cron-ticker:bufalo
 ```bash
 docker push quenandres/cron-ticker:bufalo
 ```
+
+## _*`54. Consumir nuestra imagen de DockerHub`*_
+
+```bash
+docker pull quenandres/cron-ticker:bufalo
+```
+
+## _*`55. Añadir pruebas automáticas al código`*_
+
