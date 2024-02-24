@@ -751,3 +751,8 @@ docker pull quenandres/cron-ticker:bufalo
 
 ## _*`55. Añadir pruebas automáticas al código`*_
 
+Implementación de testing.
+
+```bash
+npm i jest
+```
