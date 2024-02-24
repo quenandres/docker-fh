@@ -13,6 +13,10 @@ COPY . .
 # Realizar testing
 RUN npm run test
 
+# Eliminar archivos y directorios no necesarios en PROD
+RUN rm -rf test && rm -rf node_modules && rm -rf package-lock.json
 
+# instala dependecias de producción
+RUN npm install --prod
 
 CMD [ "node", "app.js" ]
