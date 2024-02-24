@@ -5,3 +5,7 @@ WORKDIR /app
 
 COPY  app.js package.json ./
 
+# instalar dependecias
+RUN npm install
+
+CMD [ "node", "app.js" ]
