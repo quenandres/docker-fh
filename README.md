@@ -2,7 +2,7 @@
 
 # Docker - Guia para desarrolladores
 
-## _*`Sección 2: Bases de docker`*_
+# _*`Sección 2: Bases de docker`*_
 ### _Temas puntuales de la sección_
 Esta sección introductoria a Docker, nos explicará cosas como: ¿Qué es Docker?, ¿Por qué debo de aprenderlo? y ¿Para qué me puede servir?.
 
@@ -244,7 +244,7 @@ _Pass_: zBNknN3y1Z2%;+njRoX3%JK0W0x@DuTz
 docker container rm -f a2e
 ```
 
-## _*`Sección 3 Volúmenes y Redes`*_
+# _*`Sección 3 Volúmenes y Redes`*_
 ### _Temas puntuales de la sección_
 
 Esta sección empieza a ponerse más interesante con los siguientes temas:
@@ -453,7 +453,7 @@ _-it_: hace interactivo el contenedor.
 
 
 
-## _*`Sección 4 Multi-container Apps - Docker Compose`*_
+# _*`Sección 4 Multi-container Apps - Docker Compose`*_
 ### _Temas puntuales de la sección_
 
 En esta sección trabajaremos montando aplicaciones con multiples contenedores, técnicamente usaremos la herramienta del docker compose para ejecutar todas las instrucciones que levantan los contenedores con todo lo necesario para nuestra aplicación.
@@ -658,4 +658,41 @@ volumes:
   poke-vol:
     external: false
       
+```
+
+
+
+# _*`Sección 5 Dockerfile - Crear imágenes`*_
+### _Temas puntuales de la sección_
+
+Esta sección es sumamente importante para la comprensión y creación de imágenes personalizadas.
+
+- Dockerfile
+- .dockerignore
+- Principales comandos del Dockerfile
+  - FROM
+  - RUN
+  - COPY
+  - WORKDIR
+  - Entre otros
+- Asignar tags
+- Build
+- Buildx (Para múltiples arquitecturas)
+
+Es una sección indispensable para poder crear de forma eficiente nuestras futuras imágenes que desplegaremos en servidores con arquitecturas diferentes a la nuestra computadora.
+
+
+## _*`49. Cron-Ticker - Aplicación simple`*_
+Se crea archivos _app.js_ se instala `npm i node-cron` y se crea una tarea de cada 5 segundos.
+
+```js
+const cron = require('node-cron');
+let times  = 0;
+
+cron.schedule('1-59/5 * * * * *', () => {
+    times++;
+    console.log('Tick cada 5 segundos '+ times);
+});
+
+console.log('inicio');
 ```
