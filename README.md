@@ -732,9 +732,10 @@ docker image tag cron-ticker:1.0.0 cron-ticker:bufalo
 ## _*`53. Subir imagen a Docker Hub`*_
 
 - Cambiar nombre del tag
-
+1. origen
+2. destino
 ```bash
-docker image tag quenandres/cron-ticker:bufalo quenandres/cron-ticker:bufalo
+docker image tag quenandres/cron-ticker quenandres/cron-ticker:bufalo
 ```
 
 - Subir imagenes a docker hub
@@ -791,3 +792,10 @@ RUN npm install --prod
 CMD [ "node", "app.js" ]
 ```
 
+## _*`61. Forzar una plataforma en la construcción`*_
+
+Indicamos la version de la arquitectura que tendra la imagen.
+
+```yml
+FROM --platform=linux/amd64 node:19.2-alpine3.16
+```
