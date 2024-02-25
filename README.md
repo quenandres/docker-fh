@@ -799,3 +799,12 @@ Indicamos la version de la arquitectura que tendra la imagen.
 ```yml
 FROM --platform=linux/amd64 node:19.2-alpine3.16
 ```
+
+
+[https://docs.docker.com/build/building/multi-platform/#getting-started](https://docs.docker.com/build/building/multi-platform/#getting-started)
+
+```bash
+docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t quenandres/cron-ticker:latest --push .
+```
+
+Automaticamente se generar los versionados de la imagen en las arquitecturas descritas.
