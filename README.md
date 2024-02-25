@@ -808,3 +808,10 @@ docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t quenandre
 ```
 
 Automaticamente se generar los versionados de la imagen en las arquitecturas descritas.
+
+
+## _*`63. Buildx - Construcción en multiples arquitecturas`*_
+
+```bash
+ docker buildx build --platform linux/amd64,linux/arm64 -t quenandres/cron-ticker --push .
+ ```
