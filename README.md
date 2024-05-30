@@ -892,3 +892,9 @@ COPY tasks/ ./tasks
 # Comando run de la imagen
 CMD [ "node", "app.js" ]
 ```
+
+### 74. Docker compose build - Preparación
+
+### 75. Docker compose - Target State
+
+### 76. Ejecutar partes específicas del Dockerfile
