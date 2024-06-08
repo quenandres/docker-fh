@@ -3,8 +3,13 @@ services:
   app:
     volumes:
       - ./:/app/
+      - /app/node_modules #en caso de que no exista el directorio local crea un volumen para que se vea tambien
     container_name: nest_app
-    build: .
+    build: 
+      context: .
+      target: dev
+      dockerfile: Dockerfile
+    command: yarn start:dev
     ports:
       - ${PORT}:${PORT}
     environment:      
